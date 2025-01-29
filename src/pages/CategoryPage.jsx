@@ -8,7 +8,7 @@ export const CategoryPage = () => {
   const { category } = useParams();
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["products"],
+    queryKey: ["category", category],
     queryFn: async () => {
       const response = await fetch(
         `https://fakestoreapi.in/api/products/category?type=${category}`
@@ -21,7 +21,7 @@ export const CategoryPage = () => {
   return (
     <>
       {isLoading && <ClipLoader color="#333" size={40} />}
-      {error && <p style={styles.error}>Error: {error.message}</p>}
+      {error && <p>Error: {error.message}</p>}
       {data?.products && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
           {data?.products.map(product => {

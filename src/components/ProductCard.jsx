@@ -8,11 +8,11 @@ export const ProductCard = ({ data: product }) => {
       className="bg-white shadow-lg rounded-lg p-4 flex flex-col items-center text-center transition hover:shadow-xl w-full max-w-xs mx-auto"
     >
       {/* Product Image */}
-      <img
-        src={product.image}
+      {/* <img
+        src={`https://res.cloudinary.com/demo/image/fetch/w_150,h_150/${product.image}`}
         alt="product"
         className="w-32 h-32 object-contain mb-4"
-      />
+      /> */}
 
       {/* Product Details */}
       <p className="text-lg font-semibold">{product.title}</p>
