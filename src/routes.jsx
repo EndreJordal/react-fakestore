@@ -3,8 +3,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Layout.jsx";
 //Pages
 import HomePage from "./pages/HomePage.jsx";
+import { CategoryPage } from "./pages/CategoryPage.jsx";
 import { ProductPage } from "./pages/ProductPage.jsx";
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,6 +16,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/category/:category",
+        element: <CategoryPage />,
+      },
+      {
+        path: "/product/:productId",
         element: <ProductPage />,
       },
     ],
