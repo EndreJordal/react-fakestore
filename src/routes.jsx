@@ -1,6 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+//Layout
 import Layout from "./Layout.jsx";
+//Pages
 import HomePage from "./pages/HomePage.jsx";
+import { ProductPage } from "./pages/ProductPage.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -9,6 +13,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: "/category/:category",
+        element: <ProductPage />,
       },
     ],
   },
