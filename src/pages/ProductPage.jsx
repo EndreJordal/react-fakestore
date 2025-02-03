@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { ClipLoader } from "react-spinners";
+import { Loader } from "../components/Loader";
 
 export const ProductPage = () => {
   const { productId } = useParams();
@@ -19,7 +19,7 @@ export const ProductPage = () => {
   const product = data?.product || {};
   return (
     <>
-      {isLoading && <ClipLoader color="#333" size={40} />}
+      {isLoading && <Loader />}
       {error && <p>Error: {error.message}</p>}
 
       <div>

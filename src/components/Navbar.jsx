@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { ClipLoader } from "react-spinners";
 import { NavLink } from "react-router-dom";
+import { Loader } from "./Loader";
 
 const Navbar = () => {
   const { data, isLoading, error } = useQuery({
@@ -16,8 +17,8 @@ const Navbar = () => {
 
   return (
     <>
-      {isLoading && <ClipLoader color="#333" size={40} />}
-      {error && <p style={styles.error}>Error: {error.message}</p>}
+      {isLoading && <Loader />}
+      {error && <p>Error: {error.message}</p>}
       {data?.categories && (
         <nav className="bg-gray-900 py-4 flex justify-center">
           <ul className="flex space-x-6">
@@ -26,7 +27,13 @@ const Navbar = () => {
                 <li key={i}>
                   <NavLink
                     to={`/category/${category}`}
-                    className="text-white text-lg hover:text-yellow-400 transition duration-300"
+                    className={({ isActive }) =>
+                      `px-4 py-2 rounded-md transition-colors duration-300 ${
+                        isActive
+                          ? "text-orange-500"
+                          : "text-gray-300 hover:text-white"
+                      }`
+                    }
                   >
                     {category[0].toUpperCase() + category.slice(1)}
                   </NavLink>
